@@ -31,3 +31,13 @@ for resolving vendor files to public facing URLs:
 ```
 $public_url = vendor_stream_wrapper_create_url('vendor://vendor/package/file.css');
 ```
+
+## Configuration ##
+This module will look first for the vendor first at `../vendor` then at
+`./vendor`. If no vendor folder is found an exception is thrown. If your vendor
+folder is located somewhere than either of these two locations, then you can
+tell the system were to find it by adding the following to settings.php:
+
+```
+$settings['vendor_file_path'] = 'path/to/vendor/folder';
+```
