@@ -16,9 +16,7 @@
   },
   "license": "GPL-2.0-or-later",
   "minimum-stability": "dev",
-  "require": {
-    "drupal/duration_field": "^1."
-  },
+  "require": {},
   "repositories": [{
       "type": "composer",
       "url": "https://packages.drupal.org/8"
