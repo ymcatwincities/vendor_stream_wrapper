@@ -16,7 +16,9 @@
   },
   "license": "GPL-2.0-or-later",
   "minimum-stability": "dev",
-  "require": {},
+  "require": {
+    "katzien/php-mime-type": "2.1.*"
+  },
   "repositories": [{
       "type": "composer",
       "url": "https://packages.drupal.org/8"

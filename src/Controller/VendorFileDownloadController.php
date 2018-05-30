@@ -3,6 +3,7 @@
 namespace Drupal\vendor_stream_wrapper\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
+use MimeType\MimeType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
@@ -25,7 +26,7 @@ class VendorFileDownloadController extends ControllerBase implements VendorFileD
 
     if (file_exists($uri)) {
       $headers = [
-        'Content-Type' => mime_content_type($uri),
+        'Content-Type' => MimeType::getType($uri),
       ];
       return new BinaryFileResponse($uri, 200, [], TRUE);
     }
