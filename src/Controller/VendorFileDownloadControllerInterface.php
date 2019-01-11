@@ -2,10 +2,7 @@
 
 namespace Drupal\vendor_stream_wrapper\Controller;
 
-use Drupal\Core\Controller\ControllerBase;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 /**
  * Vendor Stream Wrapper file controller interface.

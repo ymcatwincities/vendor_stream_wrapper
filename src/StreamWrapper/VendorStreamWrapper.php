@@ -19,14 +19,14 @@ class VendorStreamWrapper extends LocalReadOnlyStream implements StreamWrapperIn
    * {@inheritdoc}
    */
   public function getName() {
-    return t('Vendor Files');
+    return $this->t('Vendor Files');
   }
 
   /**
    * {@inheritdoc}
    */
   public function getDescription() {
-    return t('Vendor local files served by Drupal.');
+    return $this->t('Vendor local files served by Drupal.');
   }
 
   /**
