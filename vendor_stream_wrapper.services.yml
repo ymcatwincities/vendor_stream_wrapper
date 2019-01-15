@@ -11,3 +11,4 @@ services:
 
   vendor_stream_wrapper.service:
     class: 'Drupal\vendor_stream_wrapper\Service\VendorStreamWrapperService'
+    arguments: ['@stream_wrapper_manager']
