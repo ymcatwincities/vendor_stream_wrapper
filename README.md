@@ -29,7 +29,9 @@ The module also provides a helper function, `vendor_stream_wrapper_create_url()`
 for resolving vendor files to public facing URLs:
 
 ```
-$public_url = vendor_stream_wrapper_create_url('vendor://vendor/package/file.css');
+$public_url = vendor_stream_wrapper_create_url(
+  'vendor://vendor/package/file.css'
+);
 ```
 
 ## Configuration ##
