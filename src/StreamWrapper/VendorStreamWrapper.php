@@ -9,9 +9,9 @@ use Drupal\Core\StreamWrapper\StreamWrapperInterface;
 use Drupal\vendor_stream_wrapper\Exception\VendorDirectoryNotFoundException;
 
 /**
- * Creates a new vendor:// stream wrapper, for files in the vendor folder.
+ * Creates a vendor:// stream wrapper, for files in the vendor folder.
  */
-class VendorStreamWrapper extends LocalReadOnlyStream implements StreamWrapperInterface {
+class VendorStreamWrapper extends LocalReadOnlyStream implements StreamWrapperInterface, VendorStreamWrapperInterface {
 
   use UrlGeneratorTrait;
 
@@ -34,7 +34,7 @@ class VendorStreamWrapper extends LocalReadOnlyStream implements StreamWrapperIn
    */
   public function getExternalUrl() {
     $path = str_replace('\\', '/', $this->getTarget());
-    return $this->url('vendor_stream_wrapper.vendor_file_download', ['filepath' => $path], ['absolute' => TRUE, 'path_processing' => FALSE]);
+    return $this->url('vendor_stream_wrapper.vendor_file_download', ['filepath' => $path], ['path_processing' => FALSE]);
   }
 
   /**
@@ -45,10 +45,7 @@ class VendorStreamWrapper extends LocalReadOnlyStream implements StreamWrapperIn
   }
 
   /**
-   * Returns the base path for vendor://.
-   *
-   * @return string
-   *   The base path for vendor://.
+   * {@inheritdoc}
    */
   public static function basePath() {
     if ($custom_path = Settings::get('vendor_file_path')) {
