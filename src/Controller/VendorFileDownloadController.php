@@ -45,7 +45,7 @@ class VendorFileDownloadController extends ControllerBase implements VendorFileD
     LoggerChannelFactoryInterface $loggerFactory
   ) {
     $this->mimeTypeGuesser = $mimeTypeGuesser;
-    $this->logger = $loggerFactory->get('Vendor File Download'):
+    $this->logger = $loggerFactory->get('Vendor File Download');
   }
 
   /**
