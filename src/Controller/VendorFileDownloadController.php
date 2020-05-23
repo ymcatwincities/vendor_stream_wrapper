@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\File\MimeType\MimeTypeGuesserInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
+use Symfony\Component\HttpFoundation\File\Exception\FileNotFoundException;
 
 /**
  * Vendor Stream Wrapper file controller.
@@ -79,7 +80,12 @@ class VendorFileDownloadController extends ControllerBase implements VendorFileD
         'Content-Type' => $mime_type,
       ];
 
-      return new BinaryFileResponse($uri, 200, $headers, TRUE);
+      try {
+        return new BinaryFileResponse($uri, 200, $headers, TRUE);
+      }
+      catch (FileNotFoundException $e) {
+        throw new NotFoundHttpException();
+      }
     }
 
     throw new NotFoundHttpException();
