@@ -2,7 +2,7 @@
 
 namespace Drupal\vendor_stream_wrapper\StreamWrapper;
 
-use Drupal\Core\Routing\UrlGeneratorTrait;
+use Drupal\Core\Url;
 use Drupal\Core\Site\Settings;
 use Drupal\Core\StreamWrapper\LocalReadOnlyStream;
 use Drupal\Core\StreamWrapper\StreamWrapperInterface;
@@ -12,8 +12,6 @@ use Drupal\vendor_stream_wrapper\Exception\VendorDirectoryNotFoundException;
  * Creates a vendor:// stream wrapper, for files in the vendor folder.
  */
 class VendorStreamWrapper extends LocalReadOnlyStream implements StreamWrapperInterface, VendorStreamWrapperInterface {
-
-  use UrlGeneratorTrait;
 
   /**
    * {@inheritdoc}
@@ -34,7 +32,7 @@ class VendorStreamWrapper extends LocalReadOnlyStream implements StreamWrapperIn
    */
   public function getExternalUrl() {
     $path = str_replace('\\', '/', $this->getTarget());
-    return $this->url('vendor_stream_wrapper.vendor_file_download', ['filepath' => $path], ['path_processing' => FALSE]);
+    return Url::fromRoute('vendor_stream_wrapper.vendor_file_download', ['filepath' => $path], ['path_processing' => FALSE]);
   }
 
   /**
