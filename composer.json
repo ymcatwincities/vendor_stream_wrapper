@@ -1,5 +1,5 @@
 {
-  "name": "drupal/vendor_stream_wrapper",
+  "name": "ymcatwincities/vendor_stream_wrapper",
   "description": "Creates the vendor:// stream wrapper, allowing for linking/embedding of CSS and JS files in the vendor directory.",
   "type": "drupal-module",
   "homepage": "https://drupal.org/project/vendor_stream_wrapper",
